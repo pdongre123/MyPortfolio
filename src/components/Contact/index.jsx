@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Loader from 'react-loaders'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import AnimatedLetters from '../AnimatedLetters'
@@ -11,7 +10,7 @@ const Contact = () => {
   const form = useRef()
 
   useEffect(() => {
-      setTimeout(() => {
+    setTimeout(() => {
       setLetterClass('text-animate-hover')
     }, 3000)
   }, [])
@@ -95,12 +94,13 @@ const Contact = () => {
           <span>dongrepooja662@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
-            <TileLayer url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" />
-            <Marker position={[44.96366, 19.61045]}>
-              <Popup>Pooja lives here, come over for a cup of coffee :)</Popup>
-            </Marker>
-          </MapContainer>
+          <div class="mapouter">
+            <div class="gmap_canvas">
+              <iframe class="gmap_iframe"
+                style={{ width: "100%", height: "560px" }}
+                title="contact map"
+                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Maharashtra&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+          </div>
         </div>
       </div>
       <Loader type="pacman" />
